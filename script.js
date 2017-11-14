@@ -27,7 +27,7 @@ page_id.addEventListener('change', function () {
 //Global variables are for gays. Give my one
 var id = localStorage.getItem("sabrinaonline_id");
 if (id === null)
-    id = 10;
+    id = 1;
 
 //Why not to have some more functions?
 function next_page() {
