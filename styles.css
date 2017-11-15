@@ -1,4 +1,6 @@
 #page {
+    cursor:pointer;
+
     max-width: 100%;
     user-select: none;
 }
