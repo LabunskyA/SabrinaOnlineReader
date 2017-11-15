@@ -45,11 +45,11 @@ function prev_page() {
 
 document.onkeydown = function (e) {
     switch (e.keyCode) {
-        case '37':
+        case 37:
             prev_page();
             break;
 
-        case '39':
+        case 39:
             next_page();
             break;
     }
