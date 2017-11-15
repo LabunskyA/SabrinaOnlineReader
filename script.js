@@ -44,9 +44,11 @@ page.onerror = function () {
     page.src = page.src.replace("GIF", "JPG");
 }
 
+var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],width=w.innerWidth||e.clientWidth||g.clientWidth, height=w.innerHeight||e.clientHeight||g.clientHeight;
+
 //Interactive clicking!
 page.onclick = function () {
-    if (event.clientX / page.clientWidth > 0.33)
+    if (event.clientX / width > 0.33)
         next_page();
     else prev_page();
 };
