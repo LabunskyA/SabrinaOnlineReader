@@ -2,8 +2,11 @@
  * Created by lina on 15.11.17.
  */
 const src = "http://www.sabrina-online.com/strips/SabOnline%PAGE.";
+
 const page = document.getElementById("page");
 const page_id = document.getElementById("id");
+
+const width = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 
 //Main function, beware
 function update() {
@@ -40,7 +43,7 @@ function prev_page() {
     update();
 }
 
-document.onkeydown = function () {
+document.onkeydown = function (e) {
     switch (e.keyCode) {
         case '37':
             prev_page();
@@ -55,8 +58,6 @@ document.onkeydown = function () {
 page.onerror = function () {
     page.src = page.src.replace("GIF", "JPG");
 };
-
-var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],width=w.innerWidth||e.clientWidth||g.clientWidth, height=w.innerHeight||e.clientHeight||g.clientHeight;
 
 //Interactive clicking!
 page.onclick = function () {
