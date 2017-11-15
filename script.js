@@ -48,7 +48,7 @@ var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],
 
 //Interactive clicking!
 page.onclick = function () {
-    if (event.clientX / width > 0.33)
+    if (event.screenX / width > 0.33)
         next_page();
     else prev_page();
 };
