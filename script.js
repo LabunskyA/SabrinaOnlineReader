@@ -1,7 +1,7 @@
 /**
  * Created by lina on 15.11.17.
  */
-const src = "http://www.sabrina-online.com/strips/SabOnline%PAGE.GIF";
+const src = "http://www.sabrina-online.com/strips/SabOnline%PAGE.";
 const page = document.getElementById("page");
 const page_id = document.getElementById("id");
 
@@ -11,7 +11,7 @@ function update() {
     if (idval.length === 1)
         idval = "0"+idval;
 
-    page.src = src.replace("%PAGE", idval);
+    page.src = src.replace("%PAGE", idval) + "GIF";
 
     page_id.value = "#" + id;
 
@@ -38,6 +38,10 @@ function next_page() {
 function prev_page() {
     id--;
     update();
+}
+
+page.onerror = function () {
+    page.src = page.src.replace("GIF", "JPG");
 }
 
 //Interactive clicking!
