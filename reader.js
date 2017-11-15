@@ -40,9 +40,21 @@ function prev_page() {
     update();
 }
 
+document.onkeydown = function () {
+    switch (e.keyCode) {
+        case '37':
+            prev_page();
+            break;
+
+        case '39':
+            next_page();
+            break;
+    }
+};
+
 page.onerror = function () {
     page.src = page.src.replace("GIF", "JPG");
-}
+};
 
 var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],width=w.innerWidth||e.clientWidth||g.clientWidth, height=w.innerHeight||e.clientHeight||g.clientHeight;
 
