@@ -42,7 +42,7 @@ page_id.addEventListener('change', function () {
 });
 
 //Global variables are for gays. Give my one
-var id = localStorage.getItem("sabrinaonline_id");
+var id = localStorage.getItem(strips[0] + "_id");
 if (id === null)
     id = 1;
 
