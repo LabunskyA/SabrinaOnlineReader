@@ -5,6 +5,10 @@
     user-select: none;
 }
 
+#buff {
+    display: none;
+}
+
 #next {
     float: right;
     margin: 0 1rem;

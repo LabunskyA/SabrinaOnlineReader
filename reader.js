@@ -1,24 +1,38 @@
 /**
  * Created by lina on 15.11.17.
  */
-const src = "http://www.sabrina-online.com/strips/SabOnline%PAGE.";
+const strips = ["sabrina_online"];
 
 const page = document.getElementById("page");
+const buff = document.getElementById("buff");
+
 const page_id = document.getElementById("id");
 
-const width = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+const width = window.innerWidth ||
+    document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+
+function init_page(strip) {
+    switch (strip) {
+        case strips[0]:
+            page.onerror = function () { page.src = page.src.replace("GIF", "JPG"); };
+            break;
+    }
+}
+
+function get_strip_id(strip, id) {
+    switch (strip) {
+        case strips[0]:
+            return getSabrinaSrc(id);
+    }
+}
 
 //Main function, beware
 function update() {
-    var idval = id.toString();
-    if (idval.length === 1)
-        idval = "0"+idval;
-
-    page.src = src.replace("%PAGE", idval) + "GIF";
+    page.src = get_strip_id(strips[0], id);
+    buff.src = get_strip_id(strips[0], id + 1);
 
     page_id.value = "#" + id;
-
-    localStorage.setItem("sabrinaonline_id", id);
+    localStorage.setItem(strips[0] + "_id", id);
 }
 
 //User need full control over his life
@@ -55,10 +69,6 @@ document.onkeydown = function (e) {
     }
 };
 
-page.onerror = function () {
-    page.src = page.src.replace("GIF", "JPG");
-};
-
 //Interactive clicking!
 page.onclick = function () {
     if (event.screenX / width > 0.33)
@@ -72,4 +82,5 @@ document.getElementById("previous").onclick = function () { prev_page() };
 
 
 //To start things up
+init_page("sabrina_online");
 update();
